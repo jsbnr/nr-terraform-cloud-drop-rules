@@ -1,0 +1,23 @@
+query ($id: ID!) {
+  actor {
+    entityManagement {
+      entity(
+        id: $id
+      ) {
+        id
+        ... on EntityManagementPipelineCloudRuleEntity {
+          id
+          name
+          description
+          nrql
+          metadata {
+            createdBy {
+              id
+            }
+            createdAt
+          }
+        }
+      }
+    }
+  }
+}

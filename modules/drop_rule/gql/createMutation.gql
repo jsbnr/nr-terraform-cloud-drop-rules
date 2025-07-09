@@ -1,0 +1,17 @@
+
+mutation create( $description: String!, $name: String!, $nrql: Nrql!, $accountId: ID!) {
+  entityManagementCreatePipelineCloudRule(
+    pipelineCloudRuleEntity: {
+      description: $description
+      name: $name
+      nrql: $nrql
+      scope: { id: $accountId, type: ACCOUNT }
+    }
+  ) {
+    entity {
+      id
+      name
+      nrql
+    }
+  }
+}

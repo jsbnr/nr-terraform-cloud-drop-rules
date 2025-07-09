@@ -1,0 +1,8 @@
+
+mutation delete($id: ID!) {
+  entityManagementDelete(
+    id: $id
+  ) {
+    id
+  }
+}
