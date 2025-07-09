@@ -1,7 +1,7 @@
 # New Relic Control - Terraform Cloud Based Drop Rules 
 This demo terraform extends the [Fidelity Controlled Drop Rules demo](https://github.com/jsbnr/nr-terraform-fidelity-drop-rules) to support New Relic control cloud rules. Whilst there is currently no NR provider the [generic graphQL](https://registry.terraform.io/providers/sullivtr/graphql/latest/docs) provider can be used as temporary solution.
 
-This example shows a number of solutions. First it shows how you can use the legacy provider or the graphQL provider to drive rule creation. You may comment out the relevant provider call in the module to decide which is used, you can even run both simultaneously. Note that in this mode you must provide a different NRQL syntax for the cloud rule. For example:
+You can use the legacy provider or the graphQL provider to drive rule creation. You may comment out the relevant provider call in the module to decide which is used, you can even run both simultaneously. Note that in this mode you must provide a different NRQL syntax for the cloud rule. For example:
 
 ```
 account_id   = 6884052
@@ -24,7 +24,7 @@ filter = "debugLevel ='INFO'"
 attributes = [] # leave empty for whole record 
 ```
 
-In the above example instead of providing an action and two nrql statements we provide the key components: the `event_type`, the where clause via `filter` and a list of `attributes` to drop (an empty list indicates we should drop the entire record). This makes it simpler to migrate from the legacy provider to the new provider which can be handled by a simple change in the module logic to switch between providers.
+In the above example instead of providing an action and two nrql statements we provide the key components: the `event_type`, the where clause via `filter` and a list of `attributes` to drop (an empty list indicates we should drop the entire record). This abstraction  makes it simpler to migrate from the legacy provider to the new provider (once available) which can be handled by a simple change in the module logic to switch between providers.
 
 
 
